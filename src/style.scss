@@ -1,0 +1,81 @@
+html {
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+ul,
+ol,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1;
+}
+
+i {
+  font-size: inherit;
+  color: inherit;
+}
+
+.inner {
+  width: 375px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (min-width: 894px) {
+    width: 894px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  @media (min-width: 894px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}

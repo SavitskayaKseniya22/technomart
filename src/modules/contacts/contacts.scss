@@ -1,0 +1,128 @@
+#page_contacts {
+  height: 535px;
+  line-height: 25px;
+  position: relative;
+}
+
+#page_contacts p {
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+#page_contacts .container {
+  display: flex;
+  padding: 80px 0;
+  position: relative;
+}
+
+#about_delivery {
+  flex: 2;
+
+  padding-right: 110px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#about_delivery li {
+  background-image: url('./assets/redstring.png');
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  padding-left: 30px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+#about_delivery a {
+  width: 220px;
+}
+
+#about_map {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#map_img_small {
+  cursor: pointer;
+}
+
+#map_img_small:hover {
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#modal-writeUs form {
+  background-color: white;
+  width: 620px;
+  font-size: 18px;
+  border-top: 5px solid red;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#modal-writeUs input,
+#modal-writeUs textarea {
+  border: 2px solid #c9c5c5;
+  border-radius: 5px;
+  padding: 10px 20px;
+  resize: none;
+}
+
+#modal-writeUs ::placeholder {
+  color: #c9c5c5;
+  font-size: 14px;
+}
+
+#textMessage {
+  padding: 0 80px 40px 80px;
+}
+
+#textMessage textarea {
+  width: 100%;
+  height: 115px;
+}
+
+#formFields {
+  display: flex;
+  padding: 50px 80px 20px 80px;
+  justify-content: space-between;
+}
+
+#formFields input {
+  width: 220px;
+}
+
+#footerForm {
+  padding: 35px 80px;
+  background-color: #f4f4f4;
+}
+
+#footerForm button {
+  width: 100%;
+}

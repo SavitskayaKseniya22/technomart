@@ -1,0 +1,81 @@
+#page_advantages {
+  background-color: #f4f7f9;
+  padding: 65px 0 65px 0;
+  height: 535px;
+}
+
+#page_advantages p {
+  margin: 40px 0;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+#advantages_catalog {
+  position: relative;
+}
+
+#advantages_catalog::after {
+  content: url('./assets/shadow.png');
+  position: absolute;
+  top: -45px;
+  right: 0;
+}
+
+#advantages_catalog button {
+  text-align: left;
+  padding-left: 20px;
+  width: 240px;
+  line-height: 60px;
+  border-bottom: 1px solid #4d637b;
+  color: white;
+  font-size: 23px;
+
+  background-color: #32425c;
+}
+
+#advantages_catalog button:hover {
+  background-color: #1b2535;
+}
+
+#page_advantages button.activ {
+  color: #32425c;
+  background-color: white;
+  border-bottom: none;
+}
+
+.none {
+  display: none !important;
+}
+
+#description_service {
+  display: flex;
+}
+
+#advantages_catalog {
+  flex: 1;
+}
+
+.description {
+  flex: 3;
+  padding-left: 80px;
+}
+
+.description p {
+  width: 280px;
+}
+
+#delivery {
+  background: url('./assets/delivery.png') no-repeat 100% -50%;
+}
+
+#warranty {
+  background: url('./assets/guaranty.png') no-repeat 100% -50%;
+}
+
+#credit {
+  background: url('./assets/credit.png') no-repeat 100% -20%;
+}
+
+#credit button {
+  width: 200px;
+}

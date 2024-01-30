@@ -1,0 +1,204 @@
+.header {
+  height: 320px;
+  background-color: #f3f7f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top_header {
+  background-color: #293449;
+}
+
+.top_header .container {
+  display: flex;
+  height: 45px;
+}
+
+.top_header .container > * {
+  line-height: 45px;
+}
+
+.name_store {
+  display: block;
+  padding: 0 56px;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  text-transform: uppercase;
+  background-color: #ee3643;
+  font-size: 24px;
+
+  position: relative;
+  border-bottom: 5px solid #b52933;
+}
+
+.name_store:hover {
+  background-color: #ca2c37;
+  border-bottom: 5px solid #9a212a;
+}
+
+.name_store:active {
+  background-color: #ba2732;
+  border-bottom: 5px solid #8e1e26;
+}
+
+input[name='search'] {
+  line-height: 45px;
+  width: 290px;
+  color: white;
+  padding-left: 50px;
+  background-color: #293449;
+  font-size: inherit;
+  border: none;
+  background: url('./assets/icon-search.svg') 5% no-repeat;
+}
+
+input[name='search']:hover {
+  background-color: #212a3a;
+}
+
+input[name='search']:focus {
+  background-color: white;
+  color: #293449;
+}
+
+.inform {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.inform:hover {
+  background-color: #212a3a;
+}
+
+.inform:active {
+  background-color: #161d29;
+  opacity: 0.5;
+}
+
+.bookmark {
+  background: url('./assets/icon-bookmark.svg') no-repeat 10% 50%;
+}
+
+.cart {
+  background-image: url('./assets/icon-cart.svg') no-repeat 10% 50%;
+}
+
+.get_order {
+  width: 150px;
+  line-height: 45px;
+  color: white;
+  background-color: #63a63e;
+
+  border: none;
+  font-size: inherit;
+}
+
+.get_order:hover {
+  background-color: #5fbb2d;
+}
+
+.get_order:active {
+  background-color: #518534;
+  color: #aac39b;
+}
+
+#contactAndEnter {
+  display: flex;
+  width: 940px;
+  height: 75px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+#about_store {
+  width: 220px;
+  color: #ee3643;
+  padding-left: 40px;
+  line-height: 1.5;
+}
+
+#contacts_top {
+  width: 270px;
+  font-size: 14px;
+  text-align: center;
+  color: #293449;
+}
+
+.number {
+  display: block;
+  font-size: 20px;
+  color: #ee3643;
+  border: 3px solid white;
+  padding: 8px 50px 8px 70px;
+
+  background: url('./assets/icon-phone.svg') 5% no-repeat;
+  margin-bottom: 5px;
+}
+
+.but {
+  font-size: 20px;
+  color: #293449;
+  line-height: 45px;
+}
+
+.enter {
+  padding: 11px 27px 11px 45px;
+  background: url('./assets/icon-login.svg') 15% no-repeat white;
+}
+
+.registr {
+  background-color: white;
+  padding: 11px 27px;
+}
+
+.enter:hover {
+  color: #ee3643;
+  background-image: url('./assets/icon-loginbl.svg');
+}
+
+.but:hover {
+  color: #ee3643;
+}
+
+.but:active {
+  color: #c5c5c5;
+}
+
+/* навигация */
+
+.navigation {
+  background-color: #32425c;
+  border-bottom: 5px solid #293449;
+  width: 940px;
+  margin: 0 auto 60px;
+  display: flex;
+}
+
+.navigation li {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navigation a {
+  display: block;
+  line-height: 58px;
+}
+
+.navigation li:hover {
+  background-color: #293449;
+}
+
+.navigation li:active {
+  background-color: #1d2739;
+  color: #868c95;
+}
+
+.navigation li:active a {
+  color: #868c95;
+}

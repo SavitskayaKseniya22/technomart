@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400..700;1,400..700&display=swap');
+
 html {
   scroll-behavior: smooth;
   position: relative;
@@ -40,6 +42,7 @@ a {
   color: inherit;
   font-size: inherit;
   line-height: 1;
+  color: white;
 }
 
 i {
@@ -47,35 +50,54 @@ i {
   color: inherit;
 }
 
-.inner {
-  width: 375px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+.container {
+  max-width: 940px;
   margin: 0 auto;
-  position: relative;
-
-  @media (min-width: 894px) {
-    width: 894px;
-  }
-
-  @media (min-width: 1280px) {
-    width: 1280px;
-  }
 }
 
 body {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Cuprum', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+}
 
-  @media (min-width: 894px) {
-    font-size: 24px;
-    line-height: 28px;
-  }
+h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+}
 
-  @media (min-width: 1280px) {
-    font-size: 20px;
-    line-height: 23px;
-  }
+.btn {
+  display: block;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn--red {
+  background-color: #ee3643;
+}
+
+.btn--red:hover {
+  background-color: #ca2c37;
+}
+
+.btn--red:active {
+  background-color: #ba2732;
 }

@@ -1,81 +1,89 @@
-#page_advantages {
+.services {
   background-color: #f4f7f9;
-  padding: 65px 0 65px 0;
-  height: 535px;
-}
-
-#page_advantages p {
-  margin: 40px 0;
-  font-size: 14px;
-  line-height: 25px;
-}
-
-#advantages_catalog {
-  position: relative;
-}
-
-#advantages_catalog::after {
-  content: url('./assets/shadow.png');
-  position: absolute;
-  top: -45px;
-  right: 0;
-}
-
-#advantages_catalog button {
+  padding: 65px 0 100px 0;
+  height: 520px;
   text-align: left;
-  padding-left: 20px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    & > .text_regular {
+      margin: 25px 0 70px;
+    }
+  }
+}
+
+.services__controls {
+  position: relative;
   width: 240px;
-  line-height: 60px;
-  border-bottom: 1px solid #4d637b;
-  color: white;
-  font-size: 23px;
+  height: 185px;
 
-  background-color: #32425c;
+  &::after {
+    content: url('./assets/shadow.png');
+    position: absolute;
+    top: -45px;
+    right: 0;
+  }
+
+  button {
+    text-align: left;
+    padding-left: 20px;
+    width: 240px;
+    line-height: 60px;
+    border-bottom: 1px solid #4d637b;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    background-color: #32425c;
+
+    &:hover {
+      background-color: #1b2535;
+    }
+
+    &.selected {
+      color: #32425c;
+      background-color: white;
+      border-bottom: none;
+    }
+  }
 }
 
-#advantages_catalog button:hover {
-  background-color: #1b2535;
-}
-
-#page_advantages button.activ {
-  color: #32425c;
-  background-color: white;
-  border-bottom: none;
-}
-
-.none {
-  display: none !important;
-}
-
-#description_service {
+.services__content {
   display: flex;
-}
-
-#advantages_catalog {
-  flex: 1;
+  justify-content: space-between;
+  gap: 80px;
 }
 
 .description {
   flex: 3;
-  padding-left: 80px;
-}
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-start;
 
-.description p {
-  width: 280px;
-}
+  &:not(.selected) {
+    display: none;
+  }
 
-#delivery {
-  background: url('./assets/delivery.png') no-repeat 100% -50%;
-}
+  &.description_delivery {
+    background: url('./assets/delivery.png') no-repeat 100% -50%;
+  }
 
-#warranty {
-  background: url('./assets/guaranty.png') no-repeat 100% -50%;
-}
+  &.description_warranty {
+    background: url('./assets/guaranty.png') no-repeat 100% -50%;
+  }
 
-#credit {
-  background: url('./assets/credit.png') no-repeat 100% -20%;
-}
+  &.description_credit {
+    background: url('./assets/credit.png') no-repeat 100% -20%;
+    .btn_in-credit {
+      width: 200px;
+    }
+  }
 
-#credit button {
-  width: 200px;
+  p {
+    width: 300px;
+  }
 }

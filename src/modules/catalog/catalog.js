@@ -2,70 +2,61 @@ import './catalog.scss';
 
 export default function catalog() {
   const element = document.createElement('div');
-  element.id = 'page_catalog';
+  element.className = 'container';
 
   const catalogContent = `
-        <ul id="mainCatalog">
-          <li class="mainCatalogCard newCard">
-            <h3>Материалы</h3>
-            <br />
-            <a href="" class="btn">На любой вкус</a>
-          </li>
-          <li class="mainCatalogCard">
-            <h3>Инструмент</h3>
-            <br />
-            <a href="" class="btn">На все случаи</a>
-          </li>
-          <li class="mainCatalogCard">
-            <h3>Техника</h3>
-            <br />
-            <a href="" class="btn">Для стройки</a>
-          </li>
-
-          <li id="slider">
-            <ul id="control">
-              <li class="pointed point"></li>
-              <li class="point"></li>
-              <li class="point"></li>
-            </ul>
-            <ul>
-              <li class="main_slide slide">
-                <header>
-                  <h3>Дрели</h3>
-                  <p>Соседям на радость!</p>
-                </header>
-                <a href="" class="btn btn--red">Открыть каталог</a>
-              </li>
-              <li class="none slide">
-                <header>
-                  <h3>Шуруповерты</h3>
-                  <p>Соседям на радость!</p>
-                </header>
-                <a href="" class="btn btn--red">Открыть каталог</a>
-              </li>
-              <li class="none slide">
-                <header>
-                  <h3>Перфораторы</h3>
-                  <p>Соседям на радость!</p>
-                </header>
-                <a href="" class="btn btn--red">Открыть каталог</a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="mainCatalogCard">
-            <h3>Скидки 50%</h3>
-            <br />
-            <a href="" class="btn">На 350 товаров</a>
-          </li>
-          <li class="mainCatalogCard">
-            <h3>Доставка</h3>
-            <br />
-            <a href="" class="btn">Бесплатно</a>
-          </li>
-        </ul>
-      
-
+<ul class="catalog">
+  <li class="catalog__item catalog__item_new">
+    <h3 class="catalog-item__title">Материалы</h3>
+    <a href="/" class="btn">На любой вкус</a>
+  </li>
+  <li class="catalog__item">
+    <h3 class="catalog-item__title">Инструмент</h3>
+    <a href="/" class="btn">На все случаи</a>
+  </li>
+  <li class="catalog__item">
+    <h3 class="catalog-item__title">Техника</h3>
+    <a href="/" class="btn">Для стройки</a>
+  </li>
+  <li class="slider">
+    <ul class="slider__controls">
+      <li class="selected control"></li>
+      <li class="control"></li>
+      <li class="control"></li>
+    </ul>
+    <ul>
+      <li class="selected slide">
+        <header class="slide__header">
+          <h3 class="slide__title">Дрели</h3>
+          <p class="slide__addition">Соседям на радость!</p>
+        </header>
+        <a href="/" class="btn btn_red btn_slide">Открыть каталог</a>
+      </li>
+      <li class="slide">
+        <header class="slide__header">
+          <h3 class="slide__title">Шуруповерты</h3>
+          <p class="slide__addition">Соседям на радость!</p>
+        </header>
+        <a href="/" class="btn btn_red btn_slide">Открыть каталог</a>
+      </li>
+      <li class="slide">
+        <header class="slide__header">
+          <h3 class="slide__title">Перфораторы</h3>
+          <p class="slide__addition">Соседям на радость!</p>
+        </header>
+        <a href="/" class="btn btn_red btn_slide">Открыть каталог</a>
+      </li>
+    </ul>
+  </li>
+  <li class="catalog__item">
+    <h3 class="catalog-item__title">Скидки 50%</h3>
+    <a href="/" class="btn">На 350 товаров</a>
+  </li>
+  <li class="catalog__item">
+    <h3 class="catalog-item__title">Доставка</h3>
+    <a href="/" class="btn">Бесплатно</a>
+  </li>
+</ul>
   `;
 
   element.insertAdjacentHTML('afterbegin', catalogContent);

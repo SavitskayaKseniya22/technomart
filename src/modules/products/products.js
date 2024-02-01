@@ -5,69 +5,66 @@ import imgDrill3 from './assets/drill-3.png';
 import imgDrill4 from './assets/drill-4.png';
 import imgCart from './assets/icon-cart.svg';
 
+import chapterTitle from '../../lib/chapter-title/chapter-title';
+
+const productsData = [
+  {
+    title: 'Перфоратор BOSCH BFG 9000',
+    image: imgDrill1,
+    price: { old: 32500, new: 25500 },
+    isItNew: false,
+  },
+  {
+    title: 'Перфоратор BOSCH BFG 3000',
+    image: imgDrill2,
+    price: { old: 22500, new: 15500 },
+    isItNew: false,
+  },
+  {
+    title: 'Перфоратор BOSCH BFG 6000',
+    image: imgDrill3,
+    price: { old: 30500, new: 25999 },
+    isItNew: false,
+  },
+  {
+    title: 'Перфоратор BOSCH BFG 2000',
+    image: imgDrill4,
+    price: { old: undefined, new: 25500 },
+    isItNew: true,
+  },
+];
+
 export default function products() {
   const element = document.createElement('div');
-  element.id = 'page_goods';
+  element.className = 'container';
 
   const productsContent = `
         
-        <div class="chapter_menu">
-          <h2>Популярные товары</h2>
-          <a href="" class="btn btn--red">Все популярные товары</a>
-        </div>
+         ${chapterTitle({ title: 'популярные товары', link: '/' }).outerHTML}
 
-        <ul>
-          <li class="card_goods">
-            <img src=${imgDrill1} alt="Дрель 1" width="180" height="90" />
-            <br />
-            <button class="btn--buyItem btn">
-              <img src=${imgCart} alt="Корзина" />
-              Купить
-            </button>
-            <button class="btn--addBookm btn">В закладки</button>
+        <ul class="products__list">
+        ${productsData
+          .map((item) => {
+            return `<li class="products__item ${item.isItNew ? 'products__item_new' : ''}">
 
-            <p>Перфоратор BOSCH BFG 9000</p>
-            <del>32500 Р.</del>
-            <div class="new_price btn">25500 Р.</div>
-          </li>
-          <li class="card_goods">
-            <img src=${imgDrill2} alt="Дрель 2" />
-            <br />
-            <button class="btn--buyItem btn">
-              <img src=${imgCart} alt="Корзина" />
-              Купить
-            </button>
-            <button class="btn--addBookm btn">В закладки</button>
-            <p>Перфоратор BOSCH BFG 3000</p>
-            <del>22500 Р.</del>
-            <div class="new_price btn">15500 Р.</div>
-          </li>
-          <li class="card_goods">
-            <img src=${imgDrill3} alt="Дрель 3" />
-            <br />
-            <button class="btn--buyItem btn">
-              <img src=${imgCart} alt="Корзина" />
-              Купить
-            </button>
-            <button class="btn--addBookm btn">В закладки</button>
-            <p>Перфоратор BOSCH BFG 6000</p>
-            <del>30500 Р.</del>
-            <br />
-            <div class="new_price btn">25500 Р.</div>
-          </li>
-          <li class="card_goods new">
-            <img src=${imgDrill4} alt="Дрель 4" />
-            <br />
-            <button class="btn--buyItem btn">
-              <img src=${imgCart} alt="Корзина" />
-              Купить
-            </button>
-            <button class="btn--addBookm btn">В закладки</button>
-            <p>Перфоратор BOSCH BFG 2000</p>
-            <del></del>
-            <br />
-            <div class="new_price btn">12500 Р.</div>
-          </li>
+            <div class="products-item__controls products-item__controls_image">
+              <img src=${item.image} alt=${item.title} />
+            </div>
+            <div class="products-item__controls products-item__controls_buttons">
+              <button class="btn btn_buy">
+                <img src=${imgCart} alt="Корзина" />
+                Купить
+              </button>
+              <button class="btn btn_add ">В закладки</button>
+            </div>
+            <div class="products-item__content">
+              <p>${item.title}</p>
+              <del>${item.price.old || ''}</del>
+              <div class="btn btn_new">${item.price.new} &#8381;</div>
+            </div>
+          </li>`;
+          })
+          .join('')}
         </ul>
       
   `;

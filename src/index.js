@@ -15,7 +15,6 @@ function getContainer() {
   element.appendChild(catalog());
   element.appendChild(products());
   element.appendChild(manufacturers());
-  element.appendChild(catalog());
   element.appendChild(services());
   element.appendChild(contacts());
   element.appendChild(footer());

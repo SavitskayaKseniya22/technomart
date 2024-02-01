@@ -1,30 +1,17 @@
-.chapter_menu {
-  background-color: #f9f5f0;
-  padding: 25px;
-  color: #32425c;
+.products__list {
+  margin: 20px 0 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
-.chapter_menu a {
-  width: 250px;
-}
-
-#page_goods ul {
-  margin: 20px 0;
-  display: grid;
-  grid-template-rows: 320px;
-  grid-template-columns: 220px 220px 220px 220px;
-  grid-gap: 20px;
-}
-
-.card_goods {
+.products__item {
   width: 220px;
   height: 320px;
   border: 1px solid #eaeaea;
   text-align: center;
-  padding: 50px 17px 20px 17px;
+  padding: 20px 30px;
   font-weight: bold;
   font-family: 'PTSans', sans-serif;
   position: relative;
@@ -32,102 +19,118 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  &.products__item_new {
+    background: url('./assets/new.png') 100% 0 no-repeat;
+  }
+
+  &:hover {
+    border: 1px solid white;
+    box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+
+    .products-item__controls_buttons {
+      display: flex;
+    }
+
+    .products-item__controls_image {
+      display: none;
+    }
+  }
 }
 
-.card_goods:hover {
-  border: 1px solid white;
-  box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
+.products-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'PT Sans', sans-serif;
+
+  p {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  del {
+    color: #a9a9a9;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  .btn_new {
+    width: 120px;
+
+    position: relative;
+    background-color: #ca2c37;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 18px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: -40.2px;
+      top: 0;
+      display: block;
+      border: 21px solid transparent;
+      border-left: 21px solid #ca2c37;
+    }
+  }
 }
 
-.card_goods:hover img {
-  opacity: 0;
+.products-item__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
 }
 
-.btn--buyItem,
-.btn--addBookm {
-  width: 140px;
+.products-item__controls_buttons {
+  display: none;
 
-  font-weight: lighter;
-  position: absolute;
-  left: 42px;
-  opacity: 0;
-}
+  .btn_buy,
+  .btn_add {
+    width: 140px;
+    font-weight: lighter;
+  }
 
-.btn--buyItem {
-  background-color: #63a63e;
-  border-bottom: 3px solid #367315;
-  color: white;
-  top: 45px;
-}
+  .btn_buy {
+    background-color: #63a63e;
+    border-bottom: 3px solid #367315;
+    color: white;
+    gap: 0.5rem;
 
-.btn--buyItem:hover {
-  background-color: #5fbb2d;
-}
+    &:hover {
+      background-color: #5fbb2d;
+    }
 
-.btn--buyItem:active {
-  background-color: #518534;
-}
+    &:active {
+      background-color: #518534;
+    }
+  }
 
-.btn--addBookm {
-  background-color: white;
-  border: 3px solid #63a63e;
-  top: 90px;
-  color: black;
-}
+  .btn_add {
+    background-color: white;
+    border: 3px solid #63a63e;
+    color: black;
 
-.btn--addBookm:hover {
-  border: 3px solid #32425c;
-  color: #32425c;
-}
+    &:hover {
+      border-color: #32425c;
+      color: #32425c;
+    }
 
-.btn--addBookm:active {
-  border: 3px solid #c1c6ce;
-  color: #c1c6ce;
-}
-
-.card_goods:hover .btn--buyItem {
-  opacity: 1;
-}
-
-.card_goods:hover .btn--addBookm {
-  opacity: 1;
-}
-
-.btn--buyItem img {
-  position: absolute;
-  left: 12px;
-}
-
-.card_goods:hover .btn--buyItem img {
-  opacity: 0.3;
-}
-
-.btn--buyItem:hover img {
-  opacity: 1;
-}
-
-.btn--buyItem:active img {
-  opacity: 1;
-}
-
-del {
-  color: #a9a9a9;
-}
-
-.card_goods p {
-  margin-top: 40px;
-  margin-bottom: 8px;
-}
-
-.new_price {
-  width: 140px;
-  margin-top: 8px;
-  background-image: url('./assets/red-button.svg');
-  background-position: 30%;
-}
-
-.new {
-  background: url('./assets/new.png') 100% 0 no-repeat;
+    &:active {
+      border-color: #c1c6ce;
+      color: #c1c6ce;
+    }
+  }
 }

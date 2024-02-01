@@ -1,23 +1,23 @@
-#cards_producers {
+.manufacturers__list {
   margin: 20px 0 65px;
-
-  display: grid;
-  grid-template-rows: 145px 145px;
-  grid-template-columns: 220px 220px 220px 220px;
-  grid-gap: 20px;
-}
-
-#cards_producers a {
-  width: 220px;
-  height: 145px;
-  border: 1px solid #eaeaea;
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
   align-items: center;
-}
+  justify-content: center;
 
-#cards_producers a:hover {
-  box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
+  a {
+    width: 220px;
+    height: 145px;
+    border: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+  }
 }

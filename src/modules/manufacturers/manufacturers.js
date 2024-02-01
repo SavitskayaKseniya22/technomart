@@ -1,5 +1,7 @@
 import './manufacturers.scss';
 
+import chapterTitle from '../../lib/chapter-title/chapter-title';
+
 import imgBosch from './assets/bosch.png';
 import imgMakita from './assets/Makita.png';
 import imgDeWALT from './assets/DeWALT.png';
@@ -9,40 +11,31 @@ import imgLG from './assets/LG.png';
 import imgAEG from './assets/AEG.png';
 import imgMetabo from './assets/Metabo.png';
 
+const manufacturersData = [
+  { title: 'bosch', image: imgBosch, link: '/' },
+  { title: 'Makita', image: imgMakita, link: '/' },
+  { title: 'DeWALT', image: imgDeWALT, link: '/' },
+  { title: 'Интерскол', image: imgInter, link: '/' },
+  { title: 'Hitachi', image: imgHitachi, link: '/' },
+  { title: 'LG', image: imgLG, link: '/' },
+  { title: 'AEG', image: imgAEG, link: '/' },
+  { title: 'Metabo', image: imgMetabo, link: '/' },
+];
+
 export default function manufacturers() {
   const element = document.createElement('div');
-  element.id = 'page_produce';
+  element.className = 'container';
 
   const manufacturersContent = `
-        <div class="chapter_menu">
-          <h2>Популярные производители</h2>
-          <a href="" class="btn btn--red">Все производители</a>
-        </div>
-        <ul id="cards_producers">
-          <li>
-            <a href=""><img src=${imgBosch} alt="Бош" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgMakita} alt="Макита" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgDeWALT} alt="ДеВолт" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgInter} alt="Интерскол" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgHitachi} alt="Хитачи" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgLG} alt="Элджи" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgAEG} alt="АЕГ" /></a>
-          </li>
-          <li>
-            <a href=""><img src=${imgMetabo} alt="Митабо" /></a>
-          </li>
+        ${chapterTitle({ title: 'популярные проивзодители', link: '/' }).outerHTML}
+        <ul class="manufacturers__list">
+        ${manufacturersData
+          .map((item) => {
+            return `<li>
+            <a href=${item.link}><img src=${item.image} alt=${item.title} /></a>
+          </li>`;
+          })
+          .join('')}
         </ul>
   `;
 

@@ -207,7 +207,7 @@
   position: absolute;
   bottom: 20px;
   right: 25px;
-  z-index: 100;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
 
@@ -215,16 +215,20 @@
     display: none;
   }
 
+  input[name='catalog__slider'] {
+    display: none;
+
+    &:checked ~ .control {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
   .control {
+    display: block;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.4);
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 2px solid rgba(56, 55, 55, 0.6);
-
-    &.selected {
-      background-color: rgba(255, 255, 255, 0.9) !important;
-    }
   }
 }

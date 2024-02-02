@@ -50,7 +50,7 @@
       flex-shrink: 0;
     }
 
-    &:checked ~ input[name='search'] {
+    &:not(:checked) ~ input[name='search'] {
       display: none;
     }
   }

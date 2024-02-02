@@ -126,7 +126,6 @@ input {
 }
 
 .btn {
-
     display: block;
     text-transform: uppercase;
     border-radius: 5px;
@@ -138,18 +137,18 @@ input {
     align-items: center;
 }
 
-.btn--red {
+.btn_red {
 
     background-color: #ee3643;
 
 }
 
-.btn--red:hover {
+.btn_red:hover {
     background-color: #ca2c37;
 
 }
 
-.btn--red:active {
+.btn_red:active {
     background-color: #ba2732;
 
 }

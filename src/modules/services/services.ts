@@ -19,24 +19,23 @@ export default function services() {
 
           <ul class="services__controls">
             <li>
-              <button id="delivery_button" class="selected advantages_button">
-                Доставка
-              </button>
+               <input type="radio" id="delivery" name="services" value="delivery" checked />
+               <label for="delivery">Доставка</label>
+
+              
             </li>
             <li>
-              <button id="warranty_button" class="advantages_button">
-                Гарантия
-              </button>
+            <input type="radio" id="warranty" name="services" value="warranty" />
+               <label for="warranty">Гарантия</label>
             </li>
             <li>
-              <button id="credit_button" class="advantages_button">
-                Кредит
-              </button>
+            <input type="radio" id="credit" name="services" value="credit" />
+               <label for="credit">Кредит</label>
             </li>
           </ul>
 
 
-          <div class="selected description description_delivery">
+          <div class="selected description description_delivery" data-id="delivery">
             <h2>Доставка</h2>
             <p class="text_regular">
               Мы с удовольствием доставим ваш товар прямо к вашему подъезду
@@ -45,7 +44,7 @@ export default function services() {
             </p>
           </div>
 
-          <div class="description description_warranty">
+          <div class="description description_warranty" data-id="warranty">
             <h2>Гарантия</h2>
             <p class="text_regular">
               Если купленный у нас товар поломается или заискрит, а также в
@@ -55,7 +54,7 @@ export default function services() {
             </p>
           </div>
 
-          <div class="description description_credit">
+          <div class="description description_credit" data-id="credit">
             <h2>Кредит</h2>
             <p class="text_regular">
               Залезть в долговую яму стало проще! Кредитные консультанты придут
@@ -69,5 +68,17 @@ export default function services() {
   `;
 
   element.insertAdjacentHTML('afterbegin', servicesContent);
+
+  element.querySelectorAll('input[name="services"]').forEach((elem) => {
+    elem.addEventListener('click', () => {
+      element.querySelectorAll('.description').forEach((desc) => {
+        if ((desc as HTMLElement).dataset.id === elem.id) {
+          desc.classList.add('selected');
+        } else {
+          desc.classList.remove('selected');
+        }
+      });
+    });
+  });
   return element;
 }

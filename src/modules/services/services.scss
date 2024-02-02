@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    gap: 1rem;
 
     h2 {
       margin-bottom: 24px;
@@ -20,7 +21,6 @@
 
     @media (max-width: 800px) {
       padding: 0 1rem;
-      gap: 1rem;
 
       h2 {
         margin-bottom: 10px;
@@ -58,7 +58,19 @@
     }
   }
 
-  button {
+  input[type='radio'] {
+    display: none;
+
+    &:checked ~ label {
+      color: #32425c;
+      background-color: white;
+      border-bottom: none;
+    }
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
     text-align: left;
     padding-left: 20px;
     width: 240px;
@@ -71,12 +83,6 @@
 
     &:hover {
       background-color: #1b2535;
-    }
-
-    &.selected {
-      color: #32425c;
-      background-color: white;
-      border-bottom: none;
     }
 
     @media (max-width: 800px) {
@@ -93,7 +99,9 @@
 .services__content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 80px;
+  flex-grow: 1;
 
   @media (max-width: 800px) {
     flex-direction: column;
@@ -102,11 +110,14 @@
 }
 
 .description {
-  flex: 3;
+  flex-grow: 2;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  justify-content: flex-start;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem 0;
 
   &:not(.selected) {
     display: none;
@@ -128,8 +139,11 @@
     }
   }
 
-  p {
+  .text_regular {
     width: 300px;
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 800px) {
       width: 260px;
@@ -137,6 +151,7 @@
   }
 
   @media (max-width: 800px) {
+    width: 100%;
     background-position: 60% 0 !important;
     gap: 10px;
   }

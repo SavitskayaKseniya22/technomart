@@ -56,7 +56,7 @@ export default function products() {
                 <img src=${imgCart} alt="Корзина" />
                 Купить
               </button>
-              <button class="btn btn_add ">В закладки</button>
+              <button class="btn btn_add">В закладки</button>
             </div>
             <div class="products-item__content">
               <p>${item.title}</p>

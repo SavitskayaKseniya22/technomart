@@ -9,12 +9,21 @@
   p {
     text-align: left;
   }
+
+  @media (max-width: 800px) {
+    height: auto;
+  }
 }
 
 .footer__panel_top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .footer__nav-list_main {
@@ -24,6 +33,19 @@
   align-items: center;
   gap: 58px;
   align-self: flex-end;
+  order: 2;
+
+  @media (max-width: 970px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 800px) {
+    align-self: center;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    height: auto;
+  }
 
   a {
     font-size: 18px;
@@ -48,6 +70,33 @@
   font-size: 18px;
   line-height: 24px;
   height: 50px;
+  gap: 2rem;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    height: auto;
+  }
+}
+
+.footer__adress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 800px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    span {
+      text-align: center;
+    }
+  }
 }
 
 .footer__nav-list_sub {
@@ -55,6 +104,16 @@
   justify-content: center;
   align-items: center;
   gap: 58px;
+
+  @media (max-width: 970px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 800px) {
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+  }
 
   a {
     color: #ffd180;
@@ -74,18 +133,49 @@
   background-color: #293449;
   font-size: 16px;
   line-height: 18px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+    gap: 1rem;
+
+    @media (max-width: 800px) {
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 35px 1rem;
+    }
+  }
 }
 
-.footer__panel_bottom .container {
+.footer__rights,
+.footer__feedback,
+.footer__autors {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 107px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  @media (max-width: 800px) {
+    flex-grow: 22;
+    max-width: 45%;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+  }
+}
+
+.footer__feedback,
+.footer__autors {
+  @media (max-width: 800px) {
+    flex-direction: row;
+  }
 }
 
 .link_regular {
   color: #ffd180;
-
   &:hover {
     border-bottom: 1px solid #ffd180;
   }
@@ -101,6 +191,11 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+
+  @media (max-width: 800px) {
+    width: 45%;
+    align-items: center;
+  }
 
   a {
     width: 40px;

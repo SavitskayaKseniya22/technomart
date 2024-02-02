@@ -64,6 +64,15 @@ h6 {
 .container {
   width: 940px;
   margin: 0 auto;
+
+  @media (max-width: 970px) {
+    width: 768px;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 0 1rem;
+  }
 }
 
 body {
@@ -104,6 +113,10 @@ h2 {
     &:active {
       background-color: #ba2732;
     }
+  }
+
+  @media (max-width: 970px) {
+    height: 30px;
   }
 }
 

@@ -25,13 +25,10 @@ export default function footer() {
             </ul>
           
         </div>
-
         <div class="footer__panel_middle">
-
-          <p>
-            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8
-            <br />
-            +7 (812) 555-05-55
+          <p class="footer__adress">
+          <span>г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
+          <span> +7 (812) 555-05-55</span>
           </p>
             <ul class="footer__nav-list_sub">
               <li><a href="/">Материалы</a></li>
@@ -39,19 +36,18 @@ export default function footer() {
               <li><a href="/">Инструмент</a></li>
               <li><a href="/">Спецпредложения</a></li>
             </ul>
-          
         </div>
-
       </div>
 
       <div class="footer__panel_bottom">
 
         <div class="container">
 
-          <p>
-            © 2010-2017 Компания «Техномарт»
-            <br />
-            Все права защищены
+
+          <p class="footer__rights">
+           <span>© 2010-2017 Компания «Техномарт»</span>
+            <span>Все права защищены</span>
+            
           </p>
 
           <ul class="socials">
@@ -66,15 +62,17 @@ export default function footer() {
             </li>
           </ul>
 
-          <p>
-            Обратная связь
-            <br />
+          <p class="footer__feedback">
+          <span>Обратная связь -</span>
+            
+            
             <a href="/" class="link_regular">mail@htmlacademy.ru</a>
           </p>
 
-          <p>
-            PSD-макет разработан -
-            <br />
+          <p class="footer__autors">
+           <span>PSD-макет разработан -</span>
+            
+            
             <a href="/" class="link_regular">Htmlacademy.ru</a>
           </p>
 

@@ -32,7 +32,7 @@ export default function manufacturers() {
         ${manufacturersData
           .map((item) => {
             return `<li>
-            <a href=${item.link}><img src=${item.image} alt=${item.title} /></a>
+            <a href=${item.link} class="manufacturers__item"><img src=${item.image} alt=${item.title} /></a>
           </li>`;
           })
           .join('')}

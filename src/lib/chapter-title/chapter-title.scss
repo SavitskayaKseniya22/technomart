@@ -5,6 +5,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
 }
 
 .chapter-title__btn {

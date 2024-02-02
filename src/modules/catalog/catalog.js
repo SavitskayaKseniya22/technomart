@@ -48,14 +48,19 @@ export default function catalog() {
       </li>
     </ul>
   </li>
+ 
   <li class="catalog__item">
     <h3 class="catalog-item__title">Скидки 50%</h3>
     <a href="/" class="btn">На 350 товаров</a>
   </li>
+ 
+
   <li class="catalog__item">
     <h3 class="catalog-item__title">Доставка</h3>
     <a href="/" class="btn">Бесплатно</a>
   </li>
+
+  
 </ul>
   `;
 

@@ -50,6 +50,7 @@ export default function products() {
             <div class="products-item__controls products-item__controls_image">
               <img src=${item.image} alt=${item.title} />
             </div>
+
             <div class="products-item__controls products-item__controls_buttons">
               <button class="btn btn_buy">
                 <img src=${imgCart} alt="Корзина" />
@@ -59,7 +60,7 @@ export default function products() {
             </div>
             <div class="products-item__content">
               <p>${item.title}</p>
-              <del>${item.price.old || ''}</del>
+              <del>${item.price.old || ''}${item.price.old ? ' &#8381;' : ''}</del>
               <div class="btn btn_new">${item.price.new} &#8381;</div>
             </div>
           </li>`;

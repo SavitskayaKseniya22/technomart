@@ -22,12 +22,17 @@ const manufacturersData = [
   { title: 'Metabo', image: imgMetabo, link: '/' },
 ];
 
-export default function manufacturers() {
-  const element = document.createElement('div');
-  element.className = 'container';
+export default class Manufacturers extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'container';
+  }
 
-  const manufacturersContent = `
-        ${chapterTitle({ title: 'популярные проивзодители', link: '/' }).outerHTML}
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
+      ${chapterTitle({ title: 'популярные проивзодители', link: '/' }).outerHTML}
         <ul class="manufacturers__list">
         ${manufacturersData
           .map((item) => {
@@ -37,8 +42,11 @@ export default function manufacturers() {
           })
           .join('')}
         </ul>
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', manufacturersContent);
-  return element;
+  connectedCallback() {
+    this.render();
+  }
 }

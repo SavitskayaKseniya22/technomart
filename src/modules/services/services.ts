@@ -1,28 +1,27 @@
 import './services.scss';
 
-export default function services() {
-  const element = document.createElement('div');
-  element.className = 'services';
+export default class Services extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'services';
+  }
 
-  const servicesContent = `
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
       <div class="container">
-        
           <h2>Сервисы</h2>
           <p class="text_regular">
             Хороший интернет-магазин отличается от плохого не только ценами!
             <br />
             Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными.
           </p>
-        
-
         <div class="services__content">
-
           <ul class="services__controls">
             <li>
                <input type="radio" id="delivery" name="services" value="delivery" checked />
                <label for="delivery">Доставка</label>
-
-              
             </li>
             <li>
             <input type="radio" id="warranty" name="services" value="warranty" />
@@ -33,8 +32,6 @@ export default function services() {
                <label for="credit">Кредит</label>
             </li>
           </ul>
-
-
           <div class="selected description description_delivery" data-id="delivery">
             <h2>Доставка</h2>
             <p class="text_regular">
@@ -43,7 +40,6 @@ export default function services() {
               Ведь мы неплохо заработаем, поднимая его на ваш этаж!
             </p>
           </div>
-
           <div class="description description_warranty" data-id="warranty">
             <h2>Гарантия</h2>
             <p class="text_regular">
@@ -53,7 +49,6 @@ export default function services() {
               новый. Дом уж восстановите как-нибудь сами.
             </p>
           </div>
-
           <div class="description description_credit" data-id="credit">
             <h2>Кредит</h2>
             <p class="text_regular">
@@ -62,23 +57,25 @@ export default function services() {
             </p>
             <button class="btn btn_red btn_in-credit">Отправить заявку</button>
           </div>
-
         </div>
       </div>
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', servicesContent);
+  connectedCallback() {
+    this.render();
 
-  element.querySelectorAll('input[name="services"]').forEach((elem) => {
-    elem.addEventListener('click', () => {
-      element.querySelectorAll('.description').forEach((desc) => {
-        if ((desc as HTMLElement).dataset.id === elem.id) {
-          desc.classList.add('selected');
-        } else {
-          desc.classList.remove('selected');
-        }
+    this.querySelectorAll('input[name="services"]').forEach((elem) => {
+      elem.addEventListener('click', () => {
+        this.querySelectorAll('.description').forEach((desc) => {
+          if ((desc as HTMLElement).dataset.id === elem.id) {
+            desc.classList.add('selected');
+          } else {
+            desc.classList.remove('selected');
+          }
+        });
       });
     });
-  });
-  return element;
+  }
 }

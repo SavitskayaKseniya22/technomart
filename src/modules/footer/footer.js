@@ -3,19 +3,22 @@ import './footer.scss';
 import imgVKLogo from './assets/vk-icon.png';
 import imgFBLogo from './assets/fb-icon.png';
 import imgInstagramLogo from './assets/insta-icon.png';
-
 import logo from '../../lib/logo/logo';
 
-export default function footer() {
-  const element = document.createElement('footer');
-  element.className = 'footer';
+export default class Footer extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'footer';
+    this.id = 'footer';
+  }
 
-  const footerContent = `
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
       <div class="container">
-
         <div class="footer__panel_top">
           ${logo('wide').outerHTML}
-          
             <ul class="footer__nav-list_main">
               <li><a href="/">Компания</a></li>
               <li><a href="/">Новости</a></li>
@@ -23,7 +26,6 @@ export default function footer() {
               <li><a href="/">Доставка</a></li>
               <li><a href="/">Контакты</a></li>
             </ul>
-          
         </div>
         <div class="footer__panel_middle">
           <p class="footer__adress">
@@ -38,18 +40,12 @@ export default function footer() {
             </ul>
         </div>
       </div>
-
       <div class="footer__panel_bottom">
-
         <div class="container">
-
-
           <p class="footer__rights">
            <span>© 2010-2017 Компания «Техномарт»</span>
             <span>Все права защищены</span>
-            
           </p>
-
           <ul class="socials">
             <li>
               <a href="/"><img src=${imgVKLogo} alt="Вконтакте" /></a>
@@ -61,27 +57,21 @@ export default function footer() {
               <a href="/"><img src=${imgInstagramLogo} alt="Инстаграм" /></a>
             </li>
           </ul>
-
           <p class="footer__feedback">
-          <span>Обратная связь -</span>
-            
-            
+          <span>Обратная связь -</span> 
             <a href="/" class="link_regular">mail@htmlacademy.ru</a>
           </p>
-
           <p class="footer__autors">
            <span>PSD-макет разработан -</span>
-            
-            
             <a href="/" class="link_regular">Htmlacademy.ru</a>
           </p>
-
         </div>
-
       </div>
-    
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', footerContent);
-  return element;
+  connectedCallback() {
+    this.render();
+  }
 }

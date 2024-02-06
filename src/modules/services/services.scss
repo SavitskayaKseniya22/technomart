@@ -102,10 +102,13 @@
   align-items: center;
   gap: 80px;
   flex-grow: 1;
+  height: 250px;
+  flex-shrink: 0;
 
   @media (max-width: 800px) {
     flex-direction: column;
     gap: 2rem;
+    height: auto;
   }
 }
 

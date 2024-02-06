@@ -1,11 +1,21 @@
 import './catalog.scss';
 
-export default function catalog() {
-  const element = document.createElement('div');
-  element.className = 'container';
+export default class Catalog extends HTMLDivElement {
+  slides: string[];
+  activeSlide: number;
 
-  const catalogContent = `
-<ul class="catalog">
+  constructor() {
+    super();
+    this.className = 'container';
+    this.slides = ['first', 'second', 'third'];
+    this.activeSlide = 0;
+  }
+
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
+      <ul class="catalog">
   <li class="catalog__item catalog__item_new">
     <h3 class="catalog-item__title">Материалы</h3>
     <a href="/" class="btn">На любой вкус</a>
@@ -19,26 +29,27 @@ export default function catalog() {
     <a href="/" class="btn">Для стройки</a>
   </li>
   <li class="slider">
-
     <ul class="slider__controls">
       <li>
-
-      <input type="radio" id="first" name="catalog__slider" value="first" checked />
-      <label class="control" for="first" ></label>
-
+        <input
+          type="radio"
+          id="first"
+          name="catalog__slider"
+          value="first"
+          checked
+        />
+        <label class="control" for="first"></label>
       </li>
       <li>
-      <input type="radio" id="second" name="catalog__slider" value="second" />
-      <label class="control" for="second"></label>
+        <input type="radio" id="second" name="catalog__slider" value="second" />
+        <label class="control" for="second"></label>
       </li>
       <li>
-      <input type="radio" id="third" name="catalog__slider" value="third" />
-      <label class="control" for="third"></label>
+        <input type="radio" id="third" name="catalog__slider" value="third" />
+        <label class="control" for="third"></label>
       </li>
-      
     </ul>
     <ul>
-
       <li class="selected slide" data-id="first">
         <header class="slide__header">
           <h3 class="slide__title">Дрели</h3>
@@ -60,7 +71,6 @@ export default function catalog() {
         </header>
         <a href="/" class="btn btn_red btn_slide">Открыть каталог</a>
       </li>
-
     </ul>
   </li>
   <li class="catalog__item">
@@ -72,45 +82,52 @@ export default function catalog() {
     <a href="/" class="btn">Бесплатно</a>
   </li>
 </ul>
-  `;
+     
+    `
+    );
+  }
 
-  const slides = ['first', 'second', 'third'];
+  connectedCallback() {
+    this.render();
 
-  let activeSlide = 0;
+    this.querySelectorAll('input[name="catalog__slider"]').forEach((elem) => {
+      elem.addEventListener('click', () => {
+        this.activeSlide = this.slides.indexOf(
+          (elem as HTMLInputElement).value
+        );
 
-  element.insertAdjacentHTML('afterbegin', catalogContent);
+        this.querySelectorAll('.slide').forEach((slide) => {
+          if ((slide as HTMLElement).dataset.id === elem.id) {
+            slide.classList.add('selected');
+          } else {
+            slide.classList.remove('selected');
+          }
+        });
+      });
+    });
 
-  element.querySelectorAll('input[name="catalog__slider"]').forEach((elem) => {
-    elem.addEventListener('click', () => {
-      activeSlide = slides.indexOf((elem as HTMLInputElement).value);
+    setInterval(() => {
+      if (this.activeSlide === this.slides.length - 1) {
+        this.activeSlide = 0;
+      } else {
+        this.activeSlide += 1;
+      }
 
-      element.querySelectorAll('.slide').forEach((slide) => {
-        if ((slide as HTMLElement).dataset.id === elem.id) {
+      (
+        this.querySelector(
+          `input[id='${this.slides[this.activeSlide]}']`
+        ) as HTMLInputElement
+      ).checked = true;
+
+      this.querySelectorAll('.slide').forEach((slide) => {
+        if (
+          (slide as HTMLElement).dataset.id === this.slides[this.activeSlide]
+        ) {
           slide.classList.add('selected');
         } else {
           slide.classList.remove('selected');
         }
       });
-    });
-  });
-
-  setInterval(() => {
-    if (activeSlide === slides.length - 1) {
-      activeSlide = 0;
-    } else {
-      activeSlide += 1;
-    }
-
-    (element.querySelector(`input[id='${slides[activeSlide]}']`) as HTMLInputElement).checked = true;
-
-    element.querySelectorAll('.slide').forEach((slide) => {
-      if ((slide as HTMLElement).dataset.id === slides[activeSlide]) {
-        slide.classList.add('selected');
-      } else {
-        slide.classList.remove('selected');
-      }
-    });
-  }, 3000);
-
-  return element;
+    }, 3000);
+  }
 }

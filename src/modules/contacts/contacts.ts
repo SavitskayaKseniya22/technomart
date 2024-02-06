@@ -3,11 +3,16 @@ import './contacts.scss';
 import imgMap from './assets/map.png';
 import imgCross from './assets/cross_out.png';
 
-export default function contacts() {
-  const element = document.createElement('div');
-  element.className = 'contacts';
+export default class Contacts extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'contacts';
+  }
 
-  const contactsContent = `
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
       <div class="container">
         <div class="contacts__delivery-info">
           <h2>Компания «техномарт»</h2>
@@ -47,14 +52,17 @@ export default function contacts() {
           </button>
         </div>
       </div> 
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', contactsContent);
-  
-  element.querySelector('.map').addEventListener('click', () => {
-    element.querySelector('.container').insertAdjacentHTML(
-      'afterbegin',
-      `
+  connectedCallback() {
+    this.render();
+
+    this.querySelector('.map')?.addEventListener('click', () => {
+      this.insertAdjacentHTML(
+        'afterbegin',
+        `
 <div class="modal">
   <div class="modal__content modal__content_map">
     <iframe
@@ -70,18 +78,21 @@ export default function contacts() {
     </button>
   </div>
 </div>`
-    );
+      );
 
-    document.querySelector('.modal__button').addEventListener('click', () => {
-      element.querySelector('.modal').remove();
+      document
+        .querySelector('.modal__button')
+        ?.addEventListener('click', () => {
+          document.querySelector('.modal')?.remove();
+        });
     });
-  });
 
-
-   element.querySelector('.btn_in-contacts-details').addEventListener('click', () => {
-    element.querySelector('.container').insertAdjacentHTML(
-      'afterbegin',
-      `
+    this.querySelector('.btn_in-contacts-details')?.addEventListener(
+      'click',
+      () => {
+        this.insertAdjacentHTML(
+          'afterbegin',
+          `
 <div class="modal">
   <div class="modal__content modal__content_contacts-form" >
     
@@ -114,13 +125,14 @@ export default function contacts() {
     </form>
   </div>
 </div>`
+        );
+
+        document
+          .querySelector('.modal__button')
+          ?.addEventListener('click', () => {
+            document.querySelector('.modal')?.remove();
+          });
+      }
     );
-
-    document.querySelector('.modal__button').addEventListener('click', () => {
-      element.querySelector('.modal').remove();
-    });
-  });
-
-  return element;
+  }
 }
-

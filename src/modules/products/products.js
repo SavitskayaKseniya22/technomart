@@ -34,13 +34,17 @@ const productsData = [
   },
 ];
 
-export default function products() {
-  const element = document.createElement('div');
-  element.className = 'container';
+export default class Products extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'container';
+  }
 
-  const productsContent = `
-        
-         ${chapterTitle({ title: 'популярные товары', link: '/' }).outerHTML}
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
+      ${chapterTitle({ title: 'популярные товары', link: '/' }).outerHTML}
 
         <ul class="products__list">
         ${productsData
@@ -67,9 +71,11 @@ export default function products() {
           })
           .join('')}
         </ul>
-      
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', productsContent);
-  return element;
+  connectedCallback() {
+    this.render();
+  }
 }

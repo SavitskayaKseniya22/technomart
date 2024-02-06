@@ -1,18 +1,21 @@
 import './header.scss';
-
 import logo from '../../lib/logo/logo';
-
 import iconBookmark from './assets/icon-bookmark.svg';
 import iconCart from './assets/icon-cart.svg';
 import iconBuy from './assets/icon-buy.svg';
 import iconSearch from './assets/icon-search.svg';
 
-export default function header() {
-  const element = document.createElement('header');
-  element.className = 'header';
+export default class Header extends HTMLDivElement {
+  constructor() {
+    super();
+    this.className = 'header';
+  }
 
-  const headerContent = `
- <div class="header__top">
+  render() {
+    this.insertAdjacentHTML(
+      'afterbegin',
+      `
+      <div class="header__top">
   <div class="container">
     ${logo('slim').outerHTML}
 
@@ -71,8 +74,11 @@ export default function header() {
   <li class="header__navigation_sub"><a href="/">Доставка</a></li>
   <li class="header__navigation_sub"><a href="/">Контакты</a></li>
 </ul>
-  `;
+    `
+    );
+  }
 
-  element.insertAdjacentHTML('afterbegin', headerContent);
-  return element;
+  connectedCallback() {
+    this.render();
+  }
 }

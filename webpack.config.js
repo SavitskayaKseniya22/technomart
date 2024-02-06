@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Technomart',
+      favicon: './favicon.png',
     }),
   ],
   resolve: {
